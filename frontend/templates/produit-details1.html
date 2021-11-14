@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="col-md-4">
+      <a href="{% url 'produitDetails' produit.id %}"><button class="btn btn-primary btn-block">Retour au Transaction</button></a>
+    </div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Sortie de produit</h4>
+                  <p class="card-category"></p>
+                </div>
+                  <form action="" method="post">
+                <div class="card-body">
+                  <div class="table-responsive">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Quantité</label>
+                          <input type="number" name="quantiteR" class="form-control">
+                        </div>
+                      </div>
+                      {% csrf_token %}
+                    <button type="submit" class="btn btn-primary pull-right">Retirer Produit</button>
+                  </div>
+                </div>
+                  </form>
+              </div>
+            </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="col-md-4">
+      <a href="{% url 'main' %}"><button class="btn btn-primary btn-block">Retour au Page Principale</button></a>
+    </div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">transaction de produit</h4>
+                </div>
+              </div>
+            </div>
+              <div class="col-md-6">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <a href="{% url 'SproduitDetails' produit.id %}"> <h4 class="card-title ">sortie de produit</h4></a>
+                </div>
+              </div>
+            </div>
+              <div class="col-md-6">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <a href="{% url 'EproduitDetails' produit.id %}"> <h4 class="card-title ">entre de produit</h4></a>
+                </div>
+              </div>
+            </div>
+    </div>
+{% endblock %}

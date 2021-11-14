@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Le tableau de tout les produits du stock</h4>
+                  <p class="card-category"></p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>libelle</th>
+                        <th>description</th>
+                        <th>prix</th>
+                        <th>quantité</th>
+                        <th>date</th>
+                        <th>categorie</th>
+                      </thead>
+                      <tbody>
+                      {% for produit in produits %}
+                        <tr>
+                            <td>{{ produit.libelle }}</td>
+                            <td>{{ produit.description }}</td>
+                            <td>{{ produit.prix }}</td>
+                            <td>{{ produit.qte }}</td>
+                            <td>{{ produit.date }}</td>
+                            <td>{{ produit.categorie.libelle }}</td>
+                            <td><a href="{% url 'deleteProduit' produit.id %}" ><button class="btn btn-danger">Supprimer</button></a></td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+{% endblock %}

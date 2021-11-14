@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="card-body">
+                  <form method="post">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">libelle</label>
+                          <input type="text" name="libelle" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">description</label>
+                          <input type="text" name="description" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">prix</label>
+                          <input type="number" name="prix" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">quantite</label>
+                          <input type="number" name="quantite" class="form-control">
+                        </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                          <label class="bmd-label-floating">date</label>
+                          <input type="date" name="date" class="form-control">
+                    </div>
+                     <div class="col-md-6">
+                          <label class="bmd-label-floating">image</label>
+                          <input type="file" name="image">
+                     </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                      <div class="form-group">
+                          <label class="bmd-label-floating">Categorie</label>
+                      <select name="categorie" class="custom-select">
+                          {% for categorie in categories %}
+                              <option value="{{ categorie.id }}">{{ categorie.libelle }}</option>
+                          {% endfor %}
+                      </select>
+                      </div>
+                      </div>
+                      <div class="col-md-6">
+                      <div class="form-group">
+                          <label class="bmd-label-floating">User</label>
+                      <select name="user" class="custom-select">
+                          {% for user in users %}
+                              <option value="{{ user.id }}">{{ user }}</option>
+                          {% endfor %}
+                      </select>
+                      </div>
+                      </div>
+                    </div>
+                      {% csrf_token %}
+                    <button type="submit" class="btn btn-primary pull-right">Ajouter Produit</button>
+                  </form>
+                </div>
+
+{% endblock %}

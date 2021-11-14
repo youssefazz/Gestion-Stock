@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+            {% for produit in produits %}
+            <div class="col-md-4">
+              <div class="card card-chart">
+                <div class="card-header">
+                    <img src="{% static 'img/'%}{{ produit.image }}" alt="Produit" width="250px" height="200px">
+                </div>
+                <div class="card-body">
+                  <a href="{% url 'produitDetails' produit.id%}"><h4 class="card-title">{{ produit.libelle }}</h4></a>
+                  <p class="card-category">
+                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> {{ produit.qte }} </span> Disponible.</p>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    La date: {{ produit.date }}<i style="margin-left: 25px">Posté:{{ produit.user }}</i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+{% endblock %}
